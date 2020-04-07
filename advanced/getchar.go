@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func readStdin(out chan string, in chan bool) {
+func readStdin(out chan<- string, in <-chan bool) {
 	//no buffering
 	exec.Command("stty", "-f", "/dev/tty", "cbreak", "min", "1").Run()
 	//no visible output

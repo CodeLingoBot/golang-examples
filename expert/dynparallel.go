@@ -116,7 +116,7 @@ func main() {
 		rand.Seed(time.Now().UnixNano() + int64(i))
 		random = rand.Intn(6400) + 1
 		fmt.Printf("sending request for the %v prime number on channel %v\n", enNmbr(strconv.Itoa(random)), i)
-		go func(ch chan int, random int, i int) {
+		go func(ch chan<- int, random int, i int) {
 			time.Sleep(time.Duration(random) * time.Millisecond)
 			fmt.Printf("calculating the %v prime number for channel %v\n", enNmbr(strconv.Itoa(random)), i)
 			prime = getPrime(random)

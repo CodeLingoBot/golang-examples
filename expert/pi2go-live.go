@@ -40,7 +40,7 @@ func update(π float64) {
 	time.Sleep(time.Millisecond * 2)
 }
 
-func πByLeibniz(stop chan os.Signal) float64 {
+func πByLeibniz(stop <-chan os.Signal) float64 {
 	var calculate = true
 	go func() {
 		<-stop
@@ -67,7 +67,7 @@ func πByLeibniz(stop chan os.Signal) float64 {
 	return π * 4
 }
 
-func πByEuler(stop chan os.Signal) float64 {
+func πByEuler(stop <-chan os.Signal) float64 {
 	var calculate = true
 	go func() {
 		<-stop
@@ -87,7 +87,7 @@ func πByEuler(stop chan os.Signal) float64 {
 	return math.Sqrt(π * 6)
 }
 
-func πByPrime(stop chan os.Signal) float64 {
+func πByPrime(stop <-chan os.Signal) float64 {
 	var calculate = true
 	go func() {
 		<-stop
